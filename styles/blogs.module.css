@@ -1,0 +1,29 @@
+.blogs{
+    width: 90%;
+    margin: 2ch auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2ch
+}
+
+.blog{
+    width: 30ch;
+    box-shadow: 0 0 3px #7d97b9;
+}
+
+.blog img{
+    width: 100%;
+
+}
+
+.blogs .blog_title{
+font-size: 22px;
+font-weight: 400;
+margin: 5px 1ch;
+ }
+
+.blogs .blog_content{
+   color: #45566d;
+   font-size:15px;
+   margin: 5px 1ch;
+}

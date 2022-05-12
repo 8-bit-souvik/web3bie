@@ -1,0 +1,38 @@
+.header{
+    background-color: #b4c4d9;
+    padding: 2ch 6ch;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    font-size: 30px;
+    font-weight:800;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: 2px;;
+}
+
+.sign{
+    background-color: #77a1d8;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    text-shadow: #dadada 1px 1px;
+    font-weight: 600;
+}
+
+.sign > a{
+    padding: 1ch 2ch;
+    border-radius: 15px;
+}
+
+.sign > a:hover {
+    background-color: rgb(23, 44, 117);
+    color: #FFFC00;
+}
+
+@media screen and (max-width: 600px) {
+    .header{
+        padding: 2ch 1ch;
+    }
+}
