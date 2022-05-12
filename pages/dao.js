@@ -7,7 +7,6 @@ import Homepage from "../Components/dao/home";
 import Features from "../Components/dao/features";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
-import "@fortawesome/fontawesome-svg-core/styles.css";
 
 export default function Home() {
   return (

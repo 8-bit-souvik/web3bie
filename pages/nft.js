@@ -7,7 +7,7 @@ import Homepage from "../Components/nft/home";
 import Popularnfts from "../Components/nft/popular";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+  
 
 export default function Home() {
   return (

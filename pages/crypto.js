@@ -7,7 +7,7 @@ import Learn from "../Components/crypto/learn";
 import Pricing from "../Components/crypto/pricing";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+  
 
 export default function Home() {
   return (

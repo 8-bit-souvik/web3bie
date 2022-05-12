@@ -8,7 +8,7 @@ import About from "../Components/about";
 import Highlight from "../Components/highlight";
 import News from "../Components/news";
 import Footer from "../Components/footer";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+  
 
 export default function Home({data}) {
   // console.log(data);

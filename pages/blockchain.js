@@ -8,7 +8,7 @@ import Features from "../Components/blockchain/features";
 import Concept from "../Components/blockchain/concept";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+  
 
 export default function Home() {
   return (

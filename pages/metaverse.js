@@ -8,7 +8,7 @@ import Features from "../Components/metaverse/features";
 import Learn from "../Components/metaverse/learn";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+  
 
 export default function Home() {
   return (

@@ -5,7 +5,7 @@ import Header from "../Components/header";
 import Blogs from "../Components/blogs/blogs";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+  
 
 export default function Home() {
   return (

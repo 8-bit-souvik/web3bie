@@ -1,5 +1,5 @@
 import styles from "../styles/navbar.module.css";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+  
 
 export const Navbar = ({ aboutdata }) => {
   function toggle_nav(e) {
