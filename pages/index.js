@@ -26,6 +26,7 @@ export default function Home({data}) {
       <About />
       <Highlight />
       <News />
+      <br />
       <Footer />
     </div>
   );
