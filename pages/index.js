@@ -10,8 +10,9 @@ import News from "../Components/news";
 import Footer from "../Components/footer";
   
 
-export default function Home({data}) {
+export default function Home({data, news}) {
   // console.log(data);
+  // console.log(news);
   return (
     <div>
       <Head>
@@ -25,19 +26,19 @@ export default function Home({data}) {
       <Homepage />
       <About />
       <Highlight />
-      <News />
+      <News newsData={news}/>
       <br />
       <Footer />
     </div>
   );
 }
 
-// import { Appwrite } from "appwrite";
+import { Appwrite } from "appwrite";
 
 
-// const sdk = new Appwrite();
+const sdk = new Appwrite();
 
-// export const getStaticProps = async () => {
+export const getStaticProps = async () => {
 //   sdk
 //     .setEndpoint("http://localhost/v1") // Your API Endpoint
 //     .setProject("627c0eedb0b99a327ae1"); // Your project ID
@@ -46,10 +47,15 @@ export default function Home({data}) {
 
 //   let data = await promise;
 //   console.log("data", data);
-// return{
-//   props: {
-//   data
-//   }
-// }
 
-// };
+const res = await fetch('https://newsapi.org/v2/everything?q=web3&from=2022-04-13&sortBy=publishedAt&apiKey=ac33785863764469b3c8efb55b183743')
+  const news = await res.json();
+
+return{
+  props: {
+  // data, 
+  news
+  }
+}
+
+};

@@ -51,7 +51,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 
-export const Carousal = ({ aboutdata }) => {
+export const Carousal = ({ newsData }) => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -71,6 +71,24 @@ export const Carousal = ({ aboutdata }) => {
       items: 1,
     },
   };
+
+  console.log(newsData.articles);
+
+  let news = newsData.articles.map(newsTemplate);
+
+  function newsTemplate(data) {
+    return(
+      <a href={data.url} rel="noreferrer" target="_blank"> <div className={styles.news_card}>
+          <img
+            src={data.urlToImage}
+            alt="image"
+          />
+          <p className={styles.legend}>{data.description}</p> 
+        </div></a>
+    )
+  }
+
+
   return (
     <section className={styles.news}>
       <h1>
@@ -92,41 +110,7 @@ export const Carousal = ({ aboutdata }) => {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-        <div className={styles.news_card}>
-          <img
-            src="https://images.pexels.com/photos/11419080/pexels-photo-11419080.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt="image1"
-          />
-          <p className={styles.legend}>Hyper-V and Containers Windows features must be enabled to run Appwrite on Windows with Docker. If you don&apos;t have these features available, you can install Docker Desktop that uses Virtualbox to run Appwrite on a Virtual Machine. </p>
-        </div>
-        <div className={styles.news_card}>
-          <img
-            src="https://images.pexels.com/photos/10089714/pexels-photo-10089714.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt="image2"
-          />
-          <p className={styles.legend}>Hyper-V and Containers Windows features must be enabled to run Appwrite on Windows with Docker. If you don&apos;t have these features available, you can install Docker Desktop that uses Virtualbox to run Appwrite on a Virtual Machine. </p>
-        </div>
-        <div className={styles.news_card}>
-          <img
-            src="https://images.pexels.com/photos/10467844/pexels-photo-10467844.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt="image3"
-          />
-          <p className={styles.legend}>Hyper-V and Containers Windows features must be enabled to run Appwrite on Windows with Docker. If you don&apos;t have these features available, you can install Docker Desktop that uses Virtualbox to run Appwrite on a Virtual Machine. </p>
-        </div>
-        <div className={styles.news_card}>
-          <img
-            src="https://images.pexels.com/photos/11858794/pexels-photo-11858794.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt="image4"
-          />
-          <p className={styles.legend}>Hyper-V and Containers Windows features must be enabled to run Appwrite on Windows with Docker. If you don&apos;t have these features available, you can install Docker Desktop that uses Virtualbox to run Appwrite on a Virtual Machine. </p>
-        </div>
-        <div className={styles.news_card}>
-          <img
-            src="https://images.pexels.com/photos/11682017/pexels-photo-11682017.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt="image5"
-          />
-          <p className={styles.legend}>Hyper-V and Containers Windows features must be enabled to run Appwrite on Windows with Docker. If you don&apos;t have these features available, you can install Docker Desktop that uses Virtualbox to run Appwrite on a Virtual Machine. </p>
-        </div>
+      {news}
       </Carousel>
       <br />
     </section>
