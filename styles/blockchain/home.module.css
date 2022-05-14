@@ -1,0 +1,26 @@
+.home{
+    background-image: url("https://preferredbynature.org/sites/default/files/2021-06/iStock-953499010_0.jpg");
+}
+
+.landing{
+    color: #fff;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    padding: 4ch 0;
+    margin: 0 auto;
+    background: rgb(176,191,243);
+    background: linear-gradient(119deg, rgba(176,191,243,1) 0%, rgba(137, 136, 167, 0.408) 14%, rgba(90, 90, 192, 0.4) 33%, rgba(0,212,255,1) 100%);
+}
+
+
+.defination{
+    color: rgb(223, 233, 250);
+    text-shadow: black 2px 2px 12px;
+    font-size: 1.5em;
+    padding: 3ch 10%;
+    background: rgb(176,191,243);
+    background: linear-gradient(-119deg, rgba(176,191,243,1) 0%, rgba(137, 136, 167, 0.408) 14%, rgba(90, 90, 192, 0.4) 33%, rgba(0,212,255,1) 100%);
+}

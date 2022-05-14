@@ -55,7 +55,7 @@ export const getStaticProps = async () => {
 //   let data = await promise;
 //   console.log("data", data);
 
-const nftnews = await fetch('https://newsapi.org/v2/everything?q=nft&from='+date.format(new Date(), 'YYYY-MM-DD')+'&sortBy=publishedAt&apiKey=ac33785863764469b3c8efb55b183743')
+const nftnews = await fetch('https://newsapi.org/v2/everything?q=nft&from='+date.format(new Date(), 'YYYY-MM-DD', true)+'&sortBy=publishedAt&apiKey=ac33785863764469b3c8efb55b183743')
   const nftnews_api = await nftnews.json();
 
 

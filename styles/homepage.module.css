@@ -4,6 +4,9 @@
     margin: auto;
     padding: 2ch;
     justify-content: space-around;
+    background: rgb(176,191,243);
+    background: linear-gradient(-119deg, rgba(176,191,243,1) 0%, rgba(137, 136, 167, 0.408) 14%, rgba(90, 90, 192, 0.4) 33%, rgb(77, 200, 224) 100%);
+ 
 }
 
 .container_left{

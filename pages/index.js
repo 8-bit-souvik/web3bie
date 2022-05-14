@@ -14,7 +14,7 @@ import Footer from "../Components/footer";
 export default function Home({data, news }) {
   // console.log(data);
   // console.log(news);
-  // console.log(date.format(new Date(), 'YYYY-MM-DD'));
+  // console.log(date.format(new Date(), 'YYYY-MM-DD', true));
   return (
     <div>
       <Head>
@@ -50,7 +50,7 @@ export const getStaticProps = async () => {
 //   let data = await promise;
 //   console.log("data", data);
 
-const newsapi = await fetch('https://newsapi.org/v2/everything?q=web3&from='+date.format(new Date(), 'YYYY-MM-DD')+'&sortBy=publishedAt&apiKey=ac33785863764469b3c8efb55b183743')
+const newsapi = await fetch('https://newsapi.org/v2/everything?q=web3&from='+date.format(new Date(), 'YYYY-MM-DD', true)+'&sortBy=publishedAt&apiKey=ac33785863764469b3c8efb55b183743')
   const news = await newsapi.json();
 
 const coinpriceapi = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
