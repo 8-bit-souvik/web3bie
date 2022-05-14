@@ -2,10 +2,10 @@ import styles from "../../styles/crypto/pricing.module.css";
 import Coins from './Coins';
 
 export const Pricing = ({ markets }) => {
-  console.log(markets);
 
   return (
-      <section className={styles.valuation}>
+      <section className={styles.crypto_chart}>
+      <div className={styles.valuation}>
       {markets.map(coin => {
                 return (
                   
@@ -23,6 +23,7 @@ export const Pricing = ({ markets }) => {
                    
                 )
             })}
+      </div>
       </section>
   )
 }

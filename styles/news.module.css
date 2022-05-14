@@ -15,6 +15,7 @@
     background-color: #bbcee2;
     border: #bbcee2 5px solid;
     position: relative;
+    box-shadow: 1px 5px 10px #58708f;
 }
 
 .news{
@@ -22,7 +23,8 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    background-color: rgb(243, 250, 215);
+    margin-bottom: 2ch;
+    background-color: rgb(189, 222, 242);
 }
 
 .metadata{

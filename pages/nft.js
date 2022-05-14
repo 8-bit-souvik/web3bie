@@ -1,15 +1,18 @@
 import Head from "next/head";
 import "aos/dist/aos.css";
 import Image from "next/image";
+import date from 'date-and-time';
 import Header from "../Components/header";
 import Learn from "../Components/nft/learn";
 import Homepage from "../Components/nft/home";
+import Concept from "../Components/nft/concept";
 import Popularnfts from "../Components/nft/popular";
 import Navbar from "../Components/navbar";
+import News from "../Components/news";
 import Footer from "../Components/footer";
   
 
-export default function Home() {
+export default function Nft({nftnews_api}) {
   return (
     <div>
       <Head>
@@ -21,9 +24,46 @@ export default function Home() {
       <Header />
       <Navbar />
       <Homepage />
-      <Learn />
+      <Concept /> 
       <Popularnfts />
+      <Learn />
+      <News newsData={nftnews_api}/>
+      <br />
       <Footer />
     </div>
   );
 }
+
+
+
+
+
+
+
+import { Appwrite } from "appwrite";
+
+
+const sdk = new Appwrite();
+
+export const getStaticProps = async () => {
+//   sdk
+//     .setEndpoint("http://localhost/v1") // Your API Endpoint
+//     .setProject("627c0eedb0b99a327ae1"); // Your project ID
+
+//   let promise = sdk.database.listDocuments("627c1203b0d457d95d8f");
+
+//   let data = await promise;
+//   console.log("data", data);
+
+const nftnews = await fetch('https://newsapi.org/v2/everything?q=nft&from='+date.format(new Date(), 'YYYY-MM-DD')+'&sortBy=publishedAt&apiKey=ac33785863764469b3c8efb55b183743')
+  const nftnews_api = await nftnews.json();
+
+
+return{
+  props: {
+  // data, 
+  nftnews_api
+  }
+}
+
+};

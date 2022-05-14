@@ -51,6 +51,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 export const Carousal = ({ newsData }) => {
+  // console.log(newsData);
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -71,9 +72,12 @@ export const Carousal = ({ newsData }) => {
     },
   };
 
-  let news = newsData.articles.map(newsTemplate);
+  let news;
 
-  function newsTemplate(data) {
+if (newsData.articles) {
+   news = newsData.articles.map(newsTemplate) ;
+
+   function newsTemplate(data) {
     return (
       <a href={data.url} rel="noreferrer" target="_blank">
         {" "}
@@ -109,6 +113,7 @@ export const Carousal = ({ newsData }) => {
     <section className={styles.news}>
       <h1>Relevent news</h1>
       <Carousel
+        key={Math.floor(Math.random()*10000)}
         swipeable={true}
         draggable={true}
         showDots={false}
@@ -129,6 +134,14 @@ export const Carousal = ({ newsData }) => {
       <br />
     </section>
   );
+ 
+} else{
+  news = '<div>No News Found</div>';
+}
+  
+
+
+  
 };
 
 export default Carousal;
