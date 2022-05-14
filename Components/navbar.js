@@ -30,22 +30,22 @@ export const Navbar = ({ aboutdata }) => {
         <li className={styles.menu_list}>
           <span className={`${styles.front} ${styles.fas} `}>
             <img
+              src="https://cdn-icons-png.flaticon.com/128/1349/1349733.png"
+              height="30px"
+            />
+          </span>
+          <a href="blockchain" className={styles.side}>blockchain
+          </a>
+        </li>
+        <li className={styles.menu_list}>
+          <span className={`${styles.front} ${styles.fas} `}>
+            <img
               src="https://cdn-icons-png.flaticon.com/128/4843/4843056.png"
               height="30px"
             />
           </span>
           <a href="crypto" className={styles.side}>
             crypto
-          </a>
-        </li>
-        <li className={styles.menu_list}>
-          <span className={`${styles.front} ${styles.fas} `}>
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/1349/1349733.png"
-              height="30px"
-            />
-          </span>
-          <a href="blockchain" className={styles.side}>blockchain
           </a>
         </li>
         <li className={styles.menu_list}>
