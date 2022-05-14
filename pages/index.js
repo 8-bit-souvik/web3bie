@@ -10,7 +10,7 @@ import News from "../Components/news";
 import Footer from "../Components/footer";
   
 
-export default function Home({data, news}) {
+export default function Home({data, news }) {
   // console.log(data);
   // console.log(news);
   return (
@@ -48,13 +48,18 @@ export const getStaticProps = async () => {
 //   let data = await promise;
 //   console.log("data", data);
 
-const res = await fetch('https://newsapi.org/v2/everything?q=web3&from=2022-04-13&sortBy=publishedAt&apiKey=ac33785863764469b3c8efb55b183743')
-  const news = await res.json();
+const newsapi = await fetch('https://newsapi.org/v2/everything?q=web3&from=2022-04-13&sortBy=publishedAt&apiKey=ac33785863764469b3c8efb55b183743')
+  const news = await newsapi.json();
+
+const coinpriceapi = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
+  const coinprice = await coinpriceapi.json();
+  console.log(coinprice);
 
 return{
   props: {
   // data, 
-  news
+  news, 
+  coinprice
   }
 }
 

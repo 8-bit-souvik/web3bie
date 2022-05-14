@@ -7,9 +7,8 @@ import Learn from "../Components/crypto/learn";
 import Pricing from "../Components/crypto/pricing";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
-  
 
-export default function Home() {
+export default function Crypto({ coinprice }) {
   return (
     <div>
       <Head>
@@ -22,8 +21,36 @@ export default function Home() {
       <Navbar />
       <Homepage />
       <Learn />
-      <Pricing />
+      <Pricing markets={coinprice} />
       <Footer />
     </div>
   );
 }
+
+import { Appwrite } from "appwrite";
+
+const sdk = new Appwrite();
+
+export const getStaticProps = async () => {
+  //   sdk
+  //     .setEndpoint("http://localhost/v1") // Your API Endpoint
+  //     .setProject("627c0eedb0b99a327ae1"); // Your project ID
+
+  //   let promise = sdk.database.listDocuments("627c1203b0d457d95d8f");
+
+  //   let data = await promise;
+  //   console.log("data", data);
+
+  const coinpriceapi = await fetch(
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+  );
+  const coinprice = await coinpriceapi.json();
+
+  return {
+    props: {
+      // data,
+      coinprice,
+    },
+  };
+};
+ 

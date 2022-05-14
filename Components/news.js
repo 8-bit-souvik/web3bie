@@ -50,7 +50,6 @@ import React, { Component } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-
 export const Carousal = ({ newsData }) => {
   const responsive = {
     superLargeDesktop: {
@@ -72,28 +71,43 @@ export const Carousal = ({ newsData }) => {
     },
   };
 
-  console.log(newsData.articles);
-
   let news = newsData.articles.map(newsTemplate);
 
   function newsTemplate(data) {
-    return(
-      <a href={data.url} rel="noreferrer" target="_blank"> <div className={styles.news_card}>
+    return (
+      <a href={data.url} rel="noreferrer" target="_blank">
+        {" "}
+        <div className={styles.news_card}>
           <img
-            src={data.urlToImage}
+            src={
+              data.urlToImage
+                ? data.urlToImage
+                : "https://pbs.twimg.com/profile_images/1496388950436597760/kzYYo-jS_400x400.jpg"
+            }
             alt="image"
           />
-          <p className={styles.legend}>{data.description}</p> 
-        </div></a>
-    )
-  }
+          <p className={styles.metadata}>
+            <span className={styles.author}>
+              {data.author
+                ? data.author.length < 6
+                  ? data.author
+                  : data.author.substring(0, 18) + "..."
+                : "unknown"}
+            </span>
+            <span className={styles.date}>
+              {data.publishedAt.substring(0, 10)}
+            </span>
+          </p>
 
+          <p className={styles.legend}>{data.description}</p>
+        </div>
+      </a>
+    );
+  }
 
   return (
     <section className={styles.news}>
-      <h1>
-        Relevent news
-      </h1>
+      <h1>Relevent news</h1>
       <Carousel
         swipeable={true}
         draggable={true}
@@ -110,7 +124,7 @@ export const Carousal = ({ newsData }) => {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-      {news}
+        {news}
       </Carousel>
       <br />
     </section>
