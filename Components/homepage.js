@@ -4,8 +4,10 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
-export const Home = ({ aboutdata }) => {
+export const Home = ({ home }) => {
   // console.log('About data', aboutdata)
+
+  const {title, description, image } = home;
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
@@ -16,19 +18,17 @@ export const Home = ({ aboutdata }) => {
     <section id="home" className={styles.home}>
       <div className={styles.container_left}>
         <div className={styles.heading}>
-          EXPLORE THE NEW CONCEPT OF INTERNET
+          {title}
         </div>
         <div className={styles.paragraph}>
-          Web3 is an idea for a new iteration of the World Wide Web based on
-          blockchain technology, which incorporates concepts such as
-          decentralization and token-based economics.
+          {description}
         </div>
         <button className={styles.button} onClick={scroll}>
           LEARN MORE
         </button>
       </div>
       <div className={styles.container_right}>
-        <img src="https://allpolicies.in/wp-content/uploads/2022/01/Web-3.0.png" />
+        <img src={image} />
       </div>
     </section>
   );

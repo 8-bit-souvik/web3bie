@@ -11,8 +11,11 @@ import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import News from "../Components/news";
 
-export default function Crypto({ coinprice, news }) {
+export default function Crypto({ coinprice, news, cryptoData }) {
   // console.log(news);
+
+  const {concept, home, learn} = cryptoData.document[0];
+
   return (
     <div>
       <Head>
@@ -23,10 +26,10 @@ export default function Crypto({ coinprice, news }) {
 
       <Header />
       <Navbar />
-      <Homepage />
-      <Concept />
+      <Homepage home={home} />
+      <Concept concept={concept}/>
       <Pricing markets={coinprice} />
-      <Learn />
+      <Learn learn={learn} />
       <News newsData={news}/>
       <Footer />
     </div>
@@ -38,14 +41,13 @@ import { Appwrite } from "appwrite";
 const sdk = new Appwrite();
 
 export const getStaticProps = async () => {
-  //   sdk
-  //     .setEndpoint("http://localhost/v1") // Your API Endpoint
-  //     .setProject("627c0eedb0b99a327ae1"); // Your project ID
+    sdk
+      .setEndpoint("http://localhost/v1") // Your API Endpoint
+      .setProject("627c0eedb0b99a327ae1"); // Your project ID
 
-  //   let promise = sdk.database.listDocuments("627c1203b0d457d95d8f");
+    let cData = sdk.database.listDocuments("627c1203b0d457d95d8f");
 
-  //   let data = await promise;
-  //   console.log("data", data);
+    let cryptoData = await cData;
 
   const newsapi = await fetch('https://newsapi.org/v2/everything?q=cryptocurrency&from='+date.format(new Date(), 'YYYY-MM-DD', true)+'&sortBy=publishedAt&apiKey=ac33785863764469b3c8efb55b183743')
   const news = await newsapi.json();
@@ -59,7 +61,8 @@ export const getStaticProps = async () => {
     props: {
       // data,
       coinprice,
-      news
+      news,
+      cryptoData
     },
   };
 };

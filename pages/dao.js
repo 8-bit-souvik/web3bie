@@ -8,7 +8,8 @@ import Features from "../Components/dao/features";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 
-export default function Home() {
+export default function Dao({daoData}) {
+  const {concept, features, home} = daoData.document[0];
   return (
     <div>
       <Head>
@@ -19,10 +20,32 @@ export default function Home() {
 
       <Header />
       <Navbar />
-      <Homepage />
-      <Concept />
-      <Features />
+      <Homepage home={home}/>
+      <Concept concept={concept}/>
+      <Features features={features} />
       <Footer />
     </div>
   );
 }
+
+
+
+import { Appwrite } from "appwrite";
+
+const sdk = new Appwrite();
+
+export const getStaticProps = async () => {
+    sdk
+      .setEndpoint("http://localhost/v1") // Your API Endpoint
+      .setProject("627c0eedb0b99a327ae1"); // Your project ID
+
+    let dao = sdk.database.listDocuments("627c0fbff3a46fe7b4e6");
+
+    let daoData = await dao;
+
+  return {
+    props: {
+      daoData
+    },
+  };
+};

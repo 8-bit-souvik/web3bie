@@ -1,7 +1,7 @@
 import Head from "next/head";
 import "aos/dist/aos.css";
 import Image from "next/image";
-import date from 'date-and-time';
+import date from "date-and-time";
 import Header from "../Components/header";
 import Navbar from "../Components/navbar";
 import Homepage from "../Components/homepage";
@@ -9,12 +9,12 @@ import About from "../Components/about";
 import Highlight from "../Components/highlight";
 import News from "../Components/news";
 import Footer from "../Components/footer";
-  
 
-export default function Home({data, news }) {
+export default function Home({ homeData, news }) {
   // console.log(data);
   // console.log(news);
   // console.log(date.format(new Date(), 'YYYY-MM-DD', true));
+  const { home, about, highlight } = homeData.document[0];
   return (
     <div>
       <Head>
@@ -26,9 +26,9 @@ export default function Home({data, news }) {
       <Header />
       <Navbar />
       <Homepage />
-      <About />
+      <About about={about}/>
       <Highlight />
-      <News newsData={news}/>
+      <News newsData={news} />
       <br />
       <Footer />
     </div>
@@ -37,31 +37,34 @@ export default function Home({data, news }) {
 
 import { Appwrite } from "appwrite";
 
-
 const sdk = new Appwrite();
 
 export const getStaticProps = async () => {
-//   sdk
-//     .setEndpoint("http://localhost/v1") // Your API Endpoint
-//     .setProject("627c0eedb0b99a327ae1"); // Your project ID
+    sdk
+      .setEndpoint("http://localhost/v1") // Your API Endpoint
+      .setProject("627c0eedb0b99a327ae1"); // Your project ID
 
-//   let promise = sdk.database.listDocuments("627c1203b0d457d95d8f");
+    let promise = sdk.database.listDocuments("627c1203b0d457d95d8f");
 
-//   let data = await promise;
-//   console.log("data", data);
+    let homeData = await promise;
 
-const newsapi = await fetch('https://newsapi.org/v2/everything?q=web3&from='+date.format(new Date(), 'YYYY-MM-DD', true)+'&sortBy=publishedAt&apiKey=ac33785863764469b3c8efb55b183743')
+  const newsapi = await fetch(
+    "https://newsapi.org/v2/everything?q=web3&from=" +
+      date.format(new Date(), "YYYY-MM-DD", true) +
+      "&sortBy=publishedAt&apiKey=ac33785863764469b3c8efb55b183743"
+  );
   const news = await newsapi.json();
 
-const coinpriceapi = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
+  const coinpriceapi = await fetch(
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+  );
   const coinprice = await coinpriceapi.json();
 
-return{
-  props: {
-  // data, 
-  news, 
-  coinprice
-  }
-}
-
+  return {
+    props: {
+      homeData,
+      news,
+      coinprice,
+    },
+  };
 };

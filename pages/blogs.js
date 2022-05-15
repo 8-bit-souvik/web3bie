@@ -7,7 +7,7 @@ import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
   
 
-export default function Home() {
+export default function BlogPage({blogData}) {
   return (
     <div>
       <Head>
@@ -18,8 +18,29 @@ export default function Home() {
 
       <Header />
       <Navbar />
-      <Blogs />
+      <Blogs blogData={blogData} />
       <Footer />
     </div>
   );
 }
+
+
+import { Appwrite } from "appwrite";
+
+const sdk = new Appwrite();
+
+export const getStaticProps = async () => {
+    sdk
+      .setEndpoint("http://localhost/v1") // Your API Endpoint
+      .setProject("627c0eedb0b99a327ae1"); // Your project ID
+
+    let promise = sdk.database.listDocuments("627c0fbff3a46fe7b4e6");
+
+    let blogData = await promise;
+
+  return {
+    props: {
+      blogData
+    },
+  };
+};

@@ -1,8 +1,11 @@
 import styles from "../../styles/nft/popular.module.css";
 
-export const Popular = ({ aboutdata }) => {
+export const Popular = ({ popular }) => {
   return (
       <>
+        <section className={styles.popular}>
+          {popular}
+        </section>
       </>
   )
 }
