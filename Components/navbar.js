@@ -72,17 +72,6 @@ export const Navbar = ({ aboutdata }) => {
         </li>
         <li className={styles.menu_list}>
           <span className={`${styles.front} ${styles.fas} `}>
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/1874/1874960.png"
-              height="30px"
-            />
-          </span>
-          <a href="metaverse" className={styles.side}>
-            metaverse
-          </a>
-        </li>
-        <li className={styles.menu_list}>
-          <span className={`${styles.front} ${styles.fas} `}>
             <img src="https://i.ibb.co/GT6YF0R/image.png" height="30px" />
           </span>
           <a href="blogs" className={styles.side}>

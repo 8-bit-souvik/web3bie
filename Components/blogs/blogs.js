@@ -44,14 +44,14 @@ export const Blogs = ({ aboutdata }) => {
          <div className={styles.blog_content}>The Metaverse is a step towards digitalizing the actual world by combining Virtual Reality (VR), Augmented Reality (AR), and videos. Users can work, play, and stay connected with pals in the virtual world through their digital avatars. There are lots to do in the Metaverse, from having a meeting to travelling across the virtual globe…</div>
      </div>
      <div className={styles.blog}>
-         <div className={styles.blog_image}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/330px-Image_created_with_a_mobile_phone.png" /></div>
-         <div className={styles.blog_title}>Lorem Ipsum</div>
-         <div className={styles.blog_content}>Hyper-V and Containers Windows features must be enabled to run Appwrite on Windows with Docker. If you don&apos;t have these features available, you can install Docker Desktop that uses Virtualbox to run Appwrite on a Virtual Machine. </div>
+         <div className={styles.blog_image}><img src="https://blog.web3labs.com/hubfs/7%20Common%20Myths%20About%20Blockchain%20Blog.png" /></div>
+         <div className={styles.blog_title}>7 Common Myths About Blockchain</div>
+         <div className={styles.blog_content}>Blockchain is a versatile technology, and while it may not be a one-size-fits-all solution, the vast majority of supposed drawbacks stem from misunderstanding how it works. The most common mistake is that people tend to oversimplify issues that some blockchain solutions face and then apply that to every blockchain... </div>
      </div>
      <div className={styles.blog}>
-         <div className={styles.blog_image}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/330px-Image_created_with_a_mobile_phone.png" /></div>
-         <div className={styles.blog_title}>Lorem Ipsum</div>
-         <div className={styles.blog_content}>Hyper-V and Containers Windows features must be enabled to run Appwrite on Windows with Docker. If you don&apos;t have these features available, you can install Docker Desktop that uses Virtualbox to run Appwrite on a Virtual Machine. </div>
+         <div className={styles.blog_image}><img src="https://blog.quicknode.com/content/images/size/w2000/2022/05/chain-blog-avax.png" /></div>
+         <div className={styles.blog_title}>Avalanche & QuickNode: Powering and Scaling the Future of Crypto</div>
+         <div className={styles.blog_content}>Avalanche is a smart contracts platform that is home to many decentralized applications. It is EVM compatible, which means you can write solidity for your AVAX...</div>
      </div>
     </section>
   );

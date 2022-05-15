@@ -5,3 +5,15 @@
     color: rgb(49, 69, 107);
     font-size: 1em;
 }
+
+.features iframe{
+    width: 50vw;
+    height: 30vw;
+}
+
+@media (min-width: 768px) {
+    .features iframe{
+        width: 100%;
+        height: 30vw;
+    }
+}

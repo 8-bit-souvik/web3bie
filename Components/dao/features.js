@@ -4,6 +4,9 @@ export const Features = ({ aboutdata }) => {
   return (
       <>
       <div className={styles.features}>
+
+      <iframe  src="https://www.youtube-nocookie.com/embed/KHm0uUPqmVE" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+
       <h2>Examples of DAOs</h2>  
 Decentralized autonomous organizations have gained traction over the last few years and are now fully incorporated into many blockchain projects. The decentralized finance (DeFi) space uses DAOs to allow applications to become fully decentralized, for example.
 <br />
