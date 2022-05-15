@@ -10,7 +10,10 @@ import Popularnfts from "../Components/nft/popular";
 import Navbar from "../Components/navbar";
 import News from "../Components/news";
 import Footer from "../Components/footer";
-  
+require('dotenv').config({ path: `${__dirname}/../.env` })
+import { Appwrite } from "appwrite";
+
+
 
 export default function Nft({nftnews_api, nftData}) {
   const { concept, home, learn, popular} = nftData.document[0];
@@ -41,7 +44,7 @@ export default function Nft({nftnews_api, nftData}) {
 
 
 
-import { Appwrite } from "appwrite";
+
 
 
 const sdk = new Appwrite();
@@ -49,9 +52,9 @@ const sdk = new Appwrite();
 export const getStaticProps = async () => {
   sdk
     .setEndpoint("http://localhost/v1") // Your API Endpoint
-    .setProject("627c0eedb0b99a327ae1"); // Your project ID
+    .setProject(process.env.PROJECT_ID); // Your project ID
 
-  let promise = sdk.database.listDocuments("627c1203b0d457d95d8f");
+  let promise = sdk.database.listDocuments(process.env.NFT_DB);
 
   let nftData = await promise;
 

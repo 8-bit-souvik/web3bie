@@ -9,6 +9,10 @@ import About from "../Components/about";
 import Highlight from "../Components/highlight";
 import News from "../Components/news";
 import Footer from "../Components/footer";
+require('dotenv').config({ path: `${__dirname}/../.env` })
+import { Appwrite } from "appwrite";
+
+
 
 export default function Home({ homeData, news }) {
   // console.log(data);
@@ -35,16 +39,16 @@ export default function Home({ homeData, news }) {
   );
 }
 
-import { Appwrite } from "appwrite";
+
 
 const sdk = new Appwrite();
 
 export const getStaticProps = async () => {
     sdk
       .setEndpoint("http://localhost/v1") // Your API Endpoint
-      .setProject("627c0eedb0b99a327ae1"); // Your project ID
+      .setProject(process.env.PROJECT_ID); // Your project ID
 
-    let promise = sdk.database.listDocuments("627c1203b0d457d95d8f");
+    let promise = sdk.database.listDocuments(process.env.INDEX_DB);
 
     let homeData = await promise;
 

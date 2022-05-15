@@ -7,6 +7,9 @@ import Homepage from "../Components/dao/home";
 import Features from "../Components/dao/features";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
+require('dotenv').config({ path: `${__dirname}/../.env` })
+import { Appwrite } from "appwrite";
+
 
 export default function Dao({daoData}) {
   const {concept, features, home} = daoData.document[0];
@@ -30,16 +33,16 @@ export default function Dao({daoData}) {
 
 
 
-import { Appwrite } from "appwrite";
+
 
 const sdk = new Appwrite();
 
 export const getStaticProps = async () => {
     sdk
       .setEndpoint("http://localhost/v1") // Your API Endpoint
-      .setProject("627c0eedb0b99a327ae1"); // Your project ID
+      .setProject(process.env.PROJECT_ID); // Your project ID
 
-    let dao = sdk.database.listDocuments("627c0fbff3a46fe7b4e6");
+    let dao = sdk.database.listDocuments(process.env.DAO_DB);
 
     let daoData = await dao;
 

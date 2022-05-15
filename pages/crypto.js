@@ -10,6 +10,10 @@ import Pricing from "../Components/crypto/pricing";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 import News from "../Components/news";
+require('dotenv').config({ path: `${__dirname}/../.env` })
+import { Appwrite } from "appwrite";
+
+
 
 export default function Crypto({ coinprice, news, cryptoData }) {
   // console.log(news);
@@ -36,16 +40,16 @@ export default function Crypto({ coinprice, news, cryptoData }) {
   );
 }
 
-import { Appwrite } from "appwrite";
+
 
 const sdk = new Appwrite();
 
 export const getStaticProps = async () => {
     sdk
       .setEndpoint("http://localhost/v1") // Your API Endpoint
-      .setProject("627c0eedb0b99a327ae1"); // Your project ID
+      .setProject(process.env.PROJECT_ID); // Your project ID
 
-    let cData = sdk.database.listDocuments("627c1203b0d457d95d8f");
+    let cData = sdk.database.listDocuments(process.env.CRYPTO_DB);
 
     let cryptoData = await cData;
 

@@ -5,7 +5,8 @@ import Header from "../Components/header";
 import Blogs from "../Components/blogs/blogs";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
-  
+require('dotenv').config({ path: `${__dirname}/../.env` })
+import { Appwrite } from "appwrite";
 
 export default function BlogPage({blogData}) {
   return (
@@ -25,16 +26,15 @@ export default function BlogPage({blogData}) {
 }
 
 
-import { Appwrite } from "appwrite";
 
 const sdk = new Appwrite();
 
 export const getStaticProps = async () => {
     sdk
       .setEndpoint("http://localhost/v1") // Your API Endpoint
-      .setProject("627c0eedb0b99a327ae1"); // Your project ID
+      .setProject(process.env.PROJECT_ID); // Your project ID
 
-    let promise = sdk.database.listDocuments("627c0fbff3a46fe7b4e6");
+    let promise = sdk.database.listDocuments(process.env.BLOG_DB);
 
     let blogData = await promise;
 

@@ -8,7 +8,8 @@ import Features from "../Components/blockchain/features";
 import Concept from "../Components/blockchain/concept";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
-  
+require('dotenv').config({ path: `${__dirname}/../.env` })
+import { Appwrite } from "appwrite";
 
 export default function Blockchain({blockChain}) {
 
@@ -34,16 +35,16 @@ export default function Blockchain({blockChain}) {
 
 
 
-import { Appwrite } from "appwrite";
+
 
 const sdk = new Appwrite();
 
 export const getStaticProps = async () => {
     sdk
       .setEndpoint("http://localhost/v1") // Your API Endpoint
-      .setProject("627c0eedb0b99a327ae1"); // Your project ID
+      .setProject(process.env.PROJECT_ID); // Your project ID
 
-    let promise = sdk.database.listDocuments("627c0fbff3a46fe7b4e6");
+    let promise = sdk.database.listDocuments(process.env.BLOCHAIN_DB);
 
     let blockChain = await promise;
 
