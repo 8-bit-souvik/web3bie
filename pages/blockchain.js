@@ -21,10 +21,10 @@ export default function Home() {
 
       <Header />
       <Navbar />
-      <Learn />
       <Homepage />
       <Concept />
       <Features />
+      <Learn />
       <Footer />
     </div>
   );

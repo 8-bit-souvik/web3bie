@@ -1,0 +1,29 @@
+.concept{
+    background: rgb(176,191,243);
+    background: linear-gradient(119deg, rgba(176,191,243,1) 0%, rgba(137, 136, 167, 0.408) 14%, rgba(90, 90, 192, 0.4) 33%, rgba(0,212,255,1) 100%);
+    padding: 3ch 10%;
+    color: rgb(49, 69, 107);
+    font-size: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.concept img{
+    max-width: 450px;
+    width: auto;
+    height: auto;
+}
+
+@media screen and (max-width: 768px){
+    .concept{
+        flex-direction: column;
+        padding: 3ch 1%;
+    }
+    .concept img{
+        max-width: 100%;
+    }
+    .concept1{
+        padding: 3ch 10%;
+    }
+}
